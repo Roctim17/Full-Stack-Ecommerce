@@ -1,10 +1,9 @@
 import React from 'react';
+import Helmet from '../components/Helmet';
 
 const Home = () => {
     return (
-        <div>
-            <h1>Home</h1>
-        </div>
+        <Helmet title={'Home'}></Helmet>
     );
 };
 

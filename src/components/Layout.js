@@ -4,13 +4,13 @@ import Footer from './Footer';
 import Header from './Header';
 
 const Layout = () => {
-    return <>
-    <Header></Header>
-    <div>
-    <Routers></Routers>
-    </div>
-    <Footer></Footer>
-    </>;
+    return( <>
+        <Header />
+        <div>
+            <Routers></Routers>
+        </div>
+        <Footer />
+    </>);
 };
 
 export default Layout;
