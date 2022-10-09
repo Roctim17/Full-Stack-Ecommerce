@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Row } from 'reactstrap';
-import logo from '../assets/images/eco-logo.png'
-import userIcon from '../assets/images/user-icon.png'
+import logo from '../assets/images/eco-logo.png';
+import userIcon from '../assets/images/user-icon.png';
 import { NavLink } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import './Header.css'
