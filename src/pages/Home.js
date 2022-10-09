@@ -15,14 +15,23 @@ const Home = () => {
 
     const [trendingProducts, setTrendingProducts] = useState([]);
     const [bestSalesProducts, setBestSalesProducts] = useState([]);
+    const [mobileProducts, setMobileProducts] = useState([]);
+    const [wirelessProducts, setWirelessProducts] = useState([]);
+    const [popularProducts, setPopularProducts] = useState([]);
     const year = new Date().getFullYear();
 
     useEffect(() => {
         const filterTrendingProducts = products.filter(item => item.category === 'chair');
         const filterBestSalesProducts = products.filter(item => item.category === 'sofa');
+        const filterMobileProducts = products.filter(item => item.category === 'mobile');
+        const filterWirelessProducts = products.filter(item => item.category === 'wireless');
+        const filterPopularProducts = products.filter(item => item.category === 'watch');
 
         setTrendingProducts(filterTrendingProducts);
         setBestSalesProducts(filterBestSalesProducts);
+        setMobileProducts(filterMobileProducts);
+        setWirelessProducts(filterWirelessProducts);
+        setPopularProducts(filterPopularProducts);
     }, [])
 
     return (
@@ -80,15 +89,36 @@ const Home = () => {
                                 <h3 className='text-white fs-5 mb-3'>Quality Armchair</h3>
                             </div>
                             <Clock />
-                            <motion.button 
-                            whileTap={{scale:1.2}}
-                            className='buy_btn store_btn'>
+                            <motion.button
+                                whileTap={{ scale: 1.2 }}
+                                className='buy_btn store_btn'>
                                 <Link to='/shop' className='text-dark'>Visit Store</Link>
                             </motion.button>
                         </Col>
                         <Col lg='6' md='6' className='text-end'>
                             <img src={counterImg} alt="" />
                         </Col>
+                    </Row>
+                </Container>
+            </section>
+            <section className='new_arrivals'>
+                <Container>
+                    <Row>
+                        <Col lg='12' className='text-center'>
+                            <h2 className='section_title'>New Arrivals</h2>
+                        </Col>
+                        <ProductList data={mobileProducts} />
+                        <ProductList data={wirelessProducts} />
+                    </Row>
+                </Container>
+            </section>
+            <section className='popular_category'>
+            <Container>
+                    <Row>
+                        <Col lg='12' className='text-center'>
+                            <h2 className='section_title'>Popular in Category</h2>
+                        </Col>
+                        <ProductList data={popularProducts} />
                     </Row>
                 </Container>
             </section>
