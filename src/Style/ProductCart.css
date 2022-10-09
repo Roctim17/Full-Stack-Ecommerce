@@ -8,6 +8,9 @@
     font-weight: 600;
     margin-top: 15px;
 }
+.product_info a{
+    text-decoration: none;
+}
 .product_info a:hover{
     color: inherit;
 }

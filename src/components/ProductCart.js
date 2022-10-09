@@ -10,7 +10,7 @@ const ProductCart = ({item}) => {
         <Col lg='3' md='4' className='mb-2'>
             <div className='product_item'>
                 <div className='product_img'>
-                    <motion.img whileTap={{ scale: 0.9 }} src={item.imgUrl} alt="" />
+                    <motion.img whileHover={{ scale: 0.9 }} src={item.imgUrl} alt="" />
                 </div>
                 <div className='p-2 product_info'>
                      <h3 className='product_name'>

@@ -104,7 +104,7 @@ const Home = () => {
             <section className='new_arrivals'>
                 <Container>
                     <Row>
-                        <Col lg='12' className='text-center'>
+                        <Col lg='12' className='text-center mb-5'>
                             <h2 className='section_title'>New Arrivals</h2>
                         </Col>
                         <ProductList data={mobileProducts} />
@@ -115,7 +115,7 @@ const Home = () => {
             <section className='popular_category'>
             <Container>
                     <Row>
-                        <Col lg='12' className='text-center'>
+                        <Col lg='12' className='text-center mb-5'>
                             <h2 className='section_title'>Popular in Category</h2>
                         </Col>
                         <ProductList data={popularProducts} />
