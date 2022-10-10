@@ -10,8 +10,8 @@ import Signup from '../pages/Signup';
 
 const Routers = () => {
     return <Routes>
-        <Route path='/' element={<NavLink to='home' />} />
-        <Route path='/home' element={<Home />} />
+        <Route path='/home' element={<NavLink to='home' />} />
+        <Route path='/' element={<Home />} />
         <Route path='/shop' element={<Shop />} />
         <Route path='/productDetails' element={<ProductDetails />} />
         <Route path='/cart' element={<Cart />} />
