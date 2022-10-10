@@ -1,7 +1,7 @@
 import React from 'react';
 import { Col, Container, ListGroup, ListGroupItem, Row } from 'reactstrap';
 import '../Style/Footer.css';
-import logo from '../assets/images/eco-logo.png';
+// import logo from '../assets/images/eco-logo.png';
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
@@ -11,9 +11,9 @@ const Footer = () => {
                 <Row>
                     <Col lg='4'>
                         <div className='logo'>
-                            <img src={logo} alt="" />
+                          
                             <div>
-                                <h1>Online-Mart</h1>
+                                <h1 className='text-white'>Online-Mart</h1>
                             </div>
                         </div>
                         <p className='footer_text mt-4'>
@@ -61,17 +61,18 @@ const Footer = () => {
                     <Col lg='3'>
                     <div className='footer_quick-links'>
                             <h4 className='quick_links-title'>Contact</h4>
-                            <ListGroup className='mb-3'>
-                                <ListGroupItem className='ps-0 border-0'>
+                            <ListGroup className='footer_contact'>
+                                <ListGroupItem className='ps-0 border-0 d-flex
+                                align-items-center gap-2'>
                                  <span><i className='ri-map-pin-line'></i></span>
-                                 <p>123, </p>
+                                 <p>123, Sylhet, Bangladesh </p>
                                 </ListGroupItem>
-                                <ListGroupItem className='ps-0 border-0'>
-                                <span><i className='ri-phone-line'></i></span>
-                                 <p>123, </p>
+                                <ListGroupItem className='ps-0 border-0 d-flex'>
+                                <span><i className='ri-phone-line'> </i></span>
+                                 <p> +880 1772 59 40 42 </p>
                                 </ListGroupItem>
-                                <ListGroupItem className='ps-0 border-0'>
-                                <span><i className='ri-mail-line'></i></span>
+                                <ListGroupItem className='ps-0 border-0 d-flex'>
+                                <span><i className='ri-mail-line'> </i></span>
                                  <p>mdrokibulislamroctim@gmail.com </p>
                                 </ListGroupItem>
                              

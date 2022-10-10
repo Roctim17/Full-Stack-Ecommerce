@@ -1,4 +1,42 @@
-a{
+a {
     text-decoration: none;
     color: unset;
+}
+
+.footer {
+    padding-top: 60px;
+    padding-bottom: 30px;
+    background: var(--primary-color);
+}
+
+.footer_text {
+    line-height: 30px;
+    color: rgba(255, 255, 255, 0.735);
+}
+
+.footer_quick-links ul li {
+    background: transparent !important;
+}
+
+.footer_quick-links ul li a {
+    color: rgba(255, 255, 255, 0.735);
+    text-decoration: none;
+}
+
+.quick_links-title {
+    margin-bottom: 20px;
+    color: #fff;
+    font-size: 1.1rem;
+}
+
+.footer_contact li span,
+.footer_content li p {
+    color: rgba(255, 255, 255, 0.735);
+}
+
+.footer_contact li span {
+    font-size: 1.2rem;
+}
+.footer_contact li p{
+    font-size: .9rem ;
 }
