@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import '../Style/Clock.css'
 
 const Clock = () => {
 
@@ -10,16 +11,16 @@ const Clock = () => {
     let interval;
 
     const countDown = () => {
-        const destination = new Date('Oct 15, 2022')
-        interval = setInterval(() => {
+        const destination = new Date('Oct 15, 2022').getTime();
 
+        interval = setInterval(() => {
             const now = new Date().getTime()
-            const different = destination - now
+            const different = destination - now;
             const days = Math.floor(different / (1000 * 60 * 60 * 24))
 
-            const hours = Math.floor(different % (100 * 60 * 60 * 24) / (1000 * 60 * 60))
-            const minutes = Math.floor(different % (100 * 60 * 60) / (1000 * 60))
-            const seconds = Math.floor(different % (100 * 60) / 1000)
+            const hours = Math.floor(different % (1000 * 60 * 60 * 24) / (1000 * 60 * 60))
+            const minutes = Math.floor(different % (1000 * 60 * 60) / (1000 * 60))
+            const seconds = Math.floor(different % (1000 * 60) / 1000)
 
             if (destination < 0) clearInterval(interval.current)
             else {
@@ -28,7 +29,7 @@ const Clock = () => {
                 setMinutes(minutes)
                 setSeconds(seconds)
             }
-        }, interval);
+        });
     }
     useEffect(() => {
         countDown()

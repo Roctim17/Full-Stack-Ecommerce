@@ -83,7 +83,7 @@ const Home = () => {
             <section className='timer_count'>
                 <Container>
                     <Row>
-                        <Col lg='6' md='6'>
+                        <Col lg='6' md='12'>
                             <div className='clock_top-content'>
                                 <h4 className='text-white fs-6 mb-2'>Limited Offers</h4>
                                 <h3 className='text-white fs-5 mb-3'>Quality Armchair</h3>
@@ -95,7 +95,7 @@ const Home = () => {
                                 <Link to='/shop' className='text-dark'>Visit Store</Link>
                             </motion.button>
                         </Col>
-                        <Col lg='6' md='6' className='text-end'>
+                        <Col lg='6' md='12' className='text-end counter_img'>
                             <img src={counterImg} alt="" />
                         </Col>
                     </Row>
@@ -103,7 +103,7 @@ const Home = () => {
             </section>
             <section className='new_arrivals'>
                 <Container>
-                    <Row>
+                    <Row> 
                         <Col lg='12' className='text-center mb-5'>
                             <h2 className='section_title'>New Arrivals</h2>
                         </Col>
