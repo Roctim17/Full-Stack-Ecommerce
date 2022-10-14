@@ -1,0 +1,11 @@
+Model Information:
+* title:	Chair
+* source:	https://sketchfab.com/3d-models/chair-f70a2f54abee467fb06f49b21943d7da
+* author:	JmPrsh153 (https://sketchfab.com/JmPrsh153)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Chair" (https://sketchfab.com/3d-models/chair-f70a2f54abee467fb06f49b21943d7da) by JmPrsh153 (https://sketchfab.com/JmPrsh153) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

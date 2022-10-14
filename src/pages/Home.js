@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Col, Container, Row } from 'reactstrap';
 import Helmet from '../components/Helmet';
-import heroImg from '../assets/images/hero-img.png'
+// import heroImg from '../assets/images/hero-img.png'
 import '../Style/Home.css'
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -53,7 +53,7 @@ const Home = () => {
                         </Col>
                         <Col lg='6' md="6">
                             <div className='hero_img'>
-                                <img src={heroImg} alt="" />
+                                {/* <img src={heroImg} alt="" /> */}
                             </div>
                         </Col>
                     </Row>
@@ -83,7 +83,7 @@ const Home = () => {
             <section className='timer_count'>
                 <Container>
                     <Row>
-                        <Col lg='6' md='12'>
+                        <Col lg='6' md='12' className='count_down-col'>
                             <div className='clock_top-content'>
                                 <h4 className='text-white fs-6 mb-2'>Limited Offers</h4>
                                 <h3 className='text-white fs-5 mb-3'>Quality Armchair</h3>
