@@ -3,6 +3,7 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import gsap from 'gsap';
 
 let camera, scene, renderer;
+
 const loader = new GLTFLoader();
 
 
@@ -13,8 +14,9 @@ export function init() {
 
     scene = new THREE.Scene();
 
-    const light = new THREE.AmbientLight( 0xffffff, 2 );
-    scene.add( light );
+ 
+    const light = new THREE.AmbientLight(0xffffff, 2);
+    scene.add(light);
 
 
     loader.load("/models/chair/scene.gltf", (gltf) => {
@@ -24,36 +26,37 @@ export function init() {
 
 
         gsap.to(camera.position, {
-            z: 1,
+            z: 6,
             duration: 1,
-            ease: "back.out(1.7)"
+            ease: "back.out(1.7)",
         })
         gsap.to(camera.rotation, {
             z: 0,
             duration: 1
         })
         gsap.to(model.rotation, {
-            x: 1,
+            x: .3,
             duration: 1,
             delay: 1
         })
-        gsap.to(model.rotation, {
-            y: Math.PI * 1.75,
-            duration: 2,
-            delay: 1
-        })
+       
         gsap.to(model.scale, {
             delay: 1,
             duration: 1,
-            x: .25,
-            y: .25,
-            z: .25
+            x: .45,
+            y: .45,
+            z: .45
         })
         gsap.to(model.position, {
             delay: 1,
             duration: 1,
-            x: .35,
-            y: .3
+            x: 3.5,
+            y: .5
+        })
+        gsap.to(model.rotation, {
+            y: Math.PI * 2.75,
+            duration: 100,
+            delay: 1
         })
 
     })
@@ -62,13 +65,13 @@ export function init() {
     renderer = new THREE.WebGLRenderer({ antialias: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setAnimationLoop(animation);
-    renderer.setClearColor( 0xf7f5f5, 1 );
+    renderer.setClearColor(0xf7f5f5, 1);
     document.body.appendChild(renderer.domElement);
 
-    window.addEventListener( 'resize', () => {
+    window.addEventListener('resize', () => {
         camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
-        renderer.setSize( window.innerWidth, window.innerHeight );
+        renderer.setSize(window.innerWidth, window.innerHeight);
     });
 }
 
@@ -79,7 +82,8 @@ export function init() {
 function animation() {
 
 
-
+    // mesh.rotation.x = time / 2000;
+	// loader.load.rotation.y = time / 1000;
 
     renderer.render(scene, camera);
 

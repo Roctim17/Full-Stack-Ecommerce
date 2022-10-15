@@ -7,19 +7,20 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Services from '../services/services';
 import ProductList from '../components/ProductList';
-import products from '../assets/data/products';
 import counterImg from '../assets/images/counter-timer-img.png';
 import Clock from '../components/Clock'
+import useProduct from '../Hooks/useProduct';
 
 const Home = () => {
 
+    const [products] = useProduct([]);
     const [trendingProducts, setTrendingProducts] = useState([]);
     const [bestSalesProducts, setBestSalesProducts] = useState([]);
     const [mobileProducts, setMobileProducts] = useState([]);
     const [wirelessProducts, setWirelessProducts] = useState([]);
     const [popularProducts, setPopularProducts] = useState([]);
     const year = new Date().getFullYear();
-
+ 
     useEffect(() => {
         const filterTrendingProducts = products.filter(item => item.category === 'chair');
         const filterBestSalesProducts = products.filter(item => item.category === 'sofa');
@@ -32,7 +33,8 @@ const Home = () => {
         setMobileProducts(filterMobileProducts);
         setWirelessProducts(filterWirelessProducts);
         setPopularProducts(filterPopularProducts);
-    }, [])
+    }, [products])
+  
 
     return (
         < Helmet title={'Home'} >
