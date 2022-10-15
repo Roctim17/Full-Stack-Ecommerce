@@ -1,16 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Col, Container, Row } from 'reactstrap';
 import './services.css'
-import serviceData from '../assets/data/serviceData'
+// import serviceData from '../assets/data/serviceData'
 import { motion } from 'framer-motion';
 
 const Services = () => {
+
+const [services, setServices]= useState([]);
+useEffect(()=>{
+    fetch("http://localhost:5000/service")
+    .then(res=>res.json())
+    .then(data=>setServices(data))
+},[])
+
     return (
         <section className='services'>
             <Container>
                 <Row>
                     {
-                        serviceData.map((item,index)=>(
+                        services.map((item,index)=>(
                             <Col lg='3' md='4' key={index}>
                         <motion.div whileHover={{scale:1.1}}
                         className='service_item'
