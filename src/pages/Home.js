@@ -46,9 +46,7 @@ const Home = () => {
                                 <p className='hero_subtitle'>Trending product in {year}</p>
                                 <h2>Make Your Interior More Minimalistic & Modern</h2>
                                 <p>
-                                    Lorem  Lorem LoremLoremLorem Lorem Lorem Lorem
-                                    Lorem  Lorem LoremLoremLorem Lorem Lorem Lorem
-                                    Lorem  Lorem LoremLoremLorem Lorem Lorem Lorem
+                                MartOnline is a full suite solution enabling local shops to go online, digitise their consumer relationships more effectively. Focused on the daily needs .
                                 </p>
                                 <Link to='/shop' > <motion.button whileTap={{ scale: 1.2 }} className='buy_btn'>SHOP NOW </motion.button></Link>
                             </div>

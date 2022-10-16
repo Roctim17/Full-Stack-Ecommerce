@@ -17,7 +17,7 @@ const Footer = () => {
                             </div>
                         </div>
                         <p className='footer_text mt-4'>
-                            Lorem Lorem  Lorem  Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem
+                        MartOnline is a full suite solution enabling local shops to go online, digitise their consumer relationships more effectively. Focused on the daily needs .
                         </p>
                     </Col>
                     <Col lg='3' md='3' className='mb-4'>
