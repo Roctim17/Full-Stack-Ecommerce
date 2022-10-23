@@ -8,16 +8,22 @@ import "remixicon/fonts/remixicon.css";
 import "bootstrap/dist/css/bootstrap.css";
 import { Provider } from 'react-redux';
 import store from './redux/store'
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import  { Toaster } from 'react-hot-toast';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </Provider>
+    <Toaster />
+    <ToastContainer />
   </React.StrictMode>
+
 );
 
 // If you want to start measuring performance in your app, pass a function

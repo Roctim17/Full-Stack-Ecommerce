@@ -4,6 +4,8 @@ import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Col } from 'reactstrap';
 import { cartActions } from '../redux/slices/cartSlice';
+// import {  toast } from 'react-toastify';
+import toast from 'react-hot-toast';
 // import productImg from '../assets/images/arm-chair-01.jpg'
 import '../Style/ProductCart.css'
 
@@ -12,12 +14,12 @@ const ProductCart = ({item}) => {
     const dispatch = useDispatch()
     const addToCart = () => {
         dispatch(cartActions.addItem({
-            id: item.id,
+            id: item._id,
             productName: item.productName,
             price: item.price,
             image : item.imgUrl,
         }))
-        alert('add')
+        toast.success("Add")
     }
     return (
         <Col lg='3' md='4' className='mb-2'>
