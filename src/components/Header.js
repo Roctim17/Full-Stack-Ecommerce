@@ -5,6 +5,7 @@ import userIcon from '../assets/images/user-icon.png';
 import { NavLink } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import './Header.css'
+import { useSelector } from 'react-redux';
 
 const nav_links = [
     {
@@ -23,6 +24,7 @@ const nav_links = [
 
 const Header = () => {
 
+    const totalQuantity = useSelector(state=> state.cart.totalQuantity)
 const headerRef = useRef(null);
 
 const menuRef = useRef(null)
@@ -73,7 +75,7 @@ const menuToggle = ()=> menuRef.current.classList.toggle('active_menu')
                             </span>
                             <span className='cart_icon'>
                                 <i className='ri-shopping-bag-line'></i>
-                                <span className='badge'>1</span>
+                                <span className='badge'>{totalQuantity}</span>
                             </span>
                             <span>
                                 <motion.img whileTap={{ scale: 1.2 }} src={userIcon} alt="" />
