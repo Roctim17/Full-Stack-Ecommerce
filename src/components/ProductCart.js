@@ -29,7 +29,7 @@ const ProductCart = ({item}) => {
                 </div>
                 <div className='p-2 product_info'>
                      <h3 className='product_name'>
-                  <Link to={`/shop/${item.id}`}>{item.productName}</Link>
+                  <Link to={`/productDetails/${item._id}`}>{item.productName}</Link>
                     </h3>
                 </div>
                 <span >{item.category}</span>
