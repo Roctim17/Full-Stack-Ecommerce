@@ -32,6 +32,11 @@ const Shop = () => {
             setProductData(filterProduct)
         }
     }
+    const handleSearch = e => {
+        const searchValue = e.target.value;
+        const searchProduct = products.filter(item => item.productName.toLowerCase().includes(searchValue.toLowerCase()))
+        setProductData(searchProduct)
+    }
     return (
         <Helmet title='shop'>
             <CommonSection title='Products' />
@@ -61,7 +66,7 @@ const Shop = () => {
                         </Col>
                         <Col lg='6' md='6'>
                             <div className='search-box'>
-                                <input type="text" placeholder='type' />
+                                <input type="text" placeholder='search product' onChange={handleSearch}/>
                                 <span>
                                     <i className='ri-search-line'></i>
                                 </span>
@@ -74,8 +79,8 @@ const Shop = () => {
                 <Container>
                     <Row>
                         {
-                            productData.length === 0 ? <h1>No Product are found !</h1>
-                                : <ProductList data={productData} />
+                            productData.length === 0 ? (<h1 className='text-center fs-4'>No Product are found !</h1>)
+                                : (<ProductList data={productData} />)
                         }
                     </Row>
                 </Container>
