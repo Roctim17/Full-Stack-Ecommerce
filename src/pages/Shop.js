@@ -1,10 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Col, Container, Row } from 'reactstrap';
 import CommonSection from '../components/CommonSection';
 import Helmet from '../components/Helmet'
+import ProductList from '../components/ProductList';
+import useProduct from '../Hooks/useProduct';
 import '../Style/Shop.css'
 
 const Shop = () => {
+    const [products] = useProduct([])
+    const [productData, setProductData] = useState(products)
+    const handleFilter = e => {
+        const filterValue = e.target.value
+        if (filterValue === 'sofa') {
+            const filterProduct = products.filter(item => item.category === 'sofa')
+            setProductData(filterProduct)
+        }
+        if (filterValue === 'mobile') {
+            const filterProduct = products.filter(item => item.category === 'mobile')
+            setProductData(filterProduct)
+        }
+        if (filterValue === 'chair') {
+            const filterProduct = products.filter(item => item.category === 'chair')
+            setProductData(filterProduct)
+        }
+        if (filterValue === 'watch') {
+            const filterProduct = products.filter(item => item.category === 'watch')
+            setProductData(filterProduct)
+        }
+        if (filterValue === 'wireless') {
+            const filterProduct = products.filter(item => item.category === 'wireless')
+            setProductData(filterProduct)
+        }
+    }
     return (
         <Helmet title='shop'>
             <CommonSection title='Products' />
@@ -13,7 +40,7 @@ const Shop = () => {
                     <Row>
                         <Col lg='3' md='4'>
                             <div className='filter'>
-                                <select>
+                                <select onChange={handleFilter}>
                                     <option >Filter By Category</option>
                                     <option value="sofa" key="">Sofa</option>
                                     <option value="mobile" key="">Mobile</option>
@@ -34,12 +61,22 @@ const Shop = () => {
                         </Col>
                         <Col lg='6' md='6'>
                             <div className='search-box'>
-                                <input type="text" placeholder='type'/>
+                                <input type="text" placeholder='type' />
                                 <span>
                                     <i className='ri-search-line'></i>
                                 </span>
                             </div>
                         </Col>
+                    </Row>
+                </Container>
+            </section>
+            <section>
+                <Container>
+                    <Row>
+                        {
+                            productData.length === 0 ? <h1>No Product are found !</h1>
+                                : <ProductList data={productData} />
+                        }
                     </Row>
                 </Container>
             </section>
