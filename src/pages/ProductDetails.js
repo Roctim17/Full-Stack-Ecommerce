@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Col, Container, Row } from 'reactstrap';
 import CommonSection from '../components/CommonSection';
@@ -27,6 +27,12 @@ const ProductDetails = () => {
         e.preventDefault()
         const reviewUserName = reviewUser.current.value;
         const reviewUserMsg = reviewMsg.current.value;
+        const reviewObj ={
+            userName:reviewUserName,
+            text:reviewUserMsg,
+            rating,
+        }
+        toast.success('Review done')
     };
     const addToCart = () => {
         dispatch(cartActions.addItem({
@@ -36,10 +42,13 @@ const ProductDetails = () => {
             price,
         }))
         toast.success('Product added successfully')
-    }
+    };
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [product])
     return (
-        <Helmet>
-            <CommonSection />
+        <Helmet title={productName}>
+            <CommonSection title={productName}/>
             <section className='pt-0'>
                 <Container>
                     <Row>
@@ -51,19 +60,19 @@ const ProductDetails = () => {
                                 <h2>{productName}</h2>
                                 <div className='product_rating d-flex align-items-center gap-5 mb-3'>
                                     <div>
-                                        <span onClick={() => setRating(1)}>
+                                        <span >
                                             <i className='ri-star-s-fill'></i>
                                         </span>
-                                        <span onClick={() => setRating(2)}>
+                                        <span >
                                             <i className='ri-star-s-fill'></i>
                                         </span>
-                                        <span onClick={() => setRating(3)}>
+                                        <span >
                                             <i className='ri-star-s-fill'></i>
                                         </span>
-                                        <span onClick={() => setRating(4)}>
+                                        <span >
                                             <i className='ri-star-s-fill'></i>
                                         </span>
-                                        <span onClick={() => setRating(5)}>
+                                        <span >
                                             <i className='ri-star-half-s-fill'></i>
                                         </span>
                                     </div>
@@ -74,9 +83,9 @@ const ProductDetails = () => {
                                     <span>Category: {category.toUpperCase()}</span>
                                 </div>
                                 <p className='mt-3'>{shortDesc}</p>
-                                <motion.button whileTap={{ scale: 1.2 }} 
-                                className='buy_btn'
-                                onClick={addToCart}
+                                <motion.button whileTap={{ scale: 1.2 }}
+                                    className='buy_btn'
+                                    onClick={addToCart}
                                 >Add to Cart</motion.button>
                             </div>
                         </Col>
@@ -116,23 +125,36 @@ const ProductDetails = () => {
                                                 <h4>Leave your experience</h4>
                                                 <form onSubmit={submitHandler}>
                                                     <div className='form_group'>
-                                                        <input type="text" placeholder='Enter name' ref={reviewUser} />
+                                                        <input type="text" placeholder='Enter name' ref={reviewUser} 
+                                                        required/>
                                                     </div>
                                                     <div className='form_group 
                                                     d-flex align-items-center gap-5 rating_group'>
-                                                        <span>1<i className='ri-star-s-fill'></i></span>
-                                                        <span>2<i className='ri-star-s-fill'></i></span>
-                                                        <span>3<i className='ri-star-s-fill'></i></span>
-                                                        <span>4<i className='ri-star-s-fill'></i></span>
-                                                        <span>5<i className='ri-star-s-fill'></i></span>
+                                                        <motion.span whileTap={{scale:1.2}} onClick={() => setRating(1)}>
+                                                            1<i className='ri-star-s-fill'></i>
+                                                        </motion.span>
+                                                        <motion.span whileTap={{scale:1.2}} onClick={() => setRating(2)}>
+                                                            2<i className='ri-star-s-fill'></i>
+                                                        </motion.span>
+                                                        <motion.span whileTap={{scale:1.2}} onClick={() => setRating(3)}>
+                                                            3<i className='ri-star-s-fill'></i>
+                                                        </motion.span>
+                                                        <motion.span whileTap={{scale:1.2}} onClick={() => setRating(4)}>
+                                                            4<i className='ri-star-s-fill'></i>
+                                                        </motion.span>
+                                                        <motion.span whileTap={{scale:1.2}} onClick={() => setRating(5)}>
+                                                            5<i className='ri-star-s-fill'></i>
+                                                        </motion.span>
                                                     </div>
                                                     <div className='form_group'>
                                                         <textarea
                                                             ref={reviewMsg}
                                                             rows={4}
-                                                            type="text" placeholder='Comment' />
+                                                            type="text" placeholder='Comment' 
+                                                            required
+                                                            />
                                                     </div>
-                                                    <button type='submit' className='buy_btn'>submit</button>
+                                                    <motion.button whileTap={{scale:1.2}}  type='submit' className='buy_btn'>submit</motion.button>
                                                 </form>
                                             </div>
                                         </div>
