@@ -16,10 +16,10 @@ const ProductCart = ({item}) => {
     const dispatch = useDispatch()
     const addToCart = () => {
         dispatch(cartActions.addItem({
-            id: item._id,
+            id: item.id,
             productName: item.productName,
             price: item.price,
-            image : item.imgUrl,
+            imgUrl : item.imgUrl,
         }))
         toast.success("Add")
     }
