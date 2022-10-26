@@ -25,18 +25,18 @@ const Cart = () => {
                                         <th>Title</th>
                                         <th>Price</th>
                                         <th>Qty</th>
-                                        <motion.th whileTap={{ scale: 1.2 }}>Delete</motion.th>
+                                        <th >Delete</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                    {
                                     cartItems.map((item,index)=>(
-                                        <tr key="">
+                                        <tr key={index}>
                                         <td><img src={item.imgUrl} alt="" /></td>
                                         <td>{item.productName}</td>
                                         <td>{item.price}</td>
                                         <td>{item.quantity}pc</td>
-                                        <td><i className='ri-delete-bin-line'></i></td>
+                                        <td><motion.i whileTap={{ scale: 1.2 }} className='ri-delete-bin-line'></motion.i></td>
                                     </tr>
                                     ))
                                    }

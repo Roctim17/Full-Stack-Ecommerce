@@ -3,11 +3,12 @@ import { Col, Container, Row } from 'reactstrap';
 import CommonSection from '../components/CommonSection';
 import Helmet from '../components/Helmet'
 import ProductList from '../components/ProductList';
-import useProduct from '../Hooks/useProduct';
+// import useProduct from '../Hooks/useProduct';
 import '../Style/Shop.css'
+import products from '../assets/data/products';
 
 const Shop = () => {
-    const [products] = useProduct([])
+    // const [products] = useProduct([])
     const [productData, setProductData] = useState(products)
     const handleFilter = e => {
         const filterValue = e.target.value
