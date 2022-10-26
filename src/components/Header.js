@@ -82,7 +82,7 @@ const menuToggle = ()=> menuRef.current.classList.toggle('active_menu')
                             </span>
                             <div className='mobile_menu'>
                             <span onClick={menuToggle}>
-                                <i class="ri-menu-line"></i>
+                                <i className="ri-menu-line"></i>
                             </span>
                         </div>
                         </div>

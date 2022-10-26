@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 import { Col } from 'reactstrap';
 import { cartActions } from '../redux/slices/cartSlice';
 // import {  toast } from 'react-toastify';
@@ -10,6 +10,8 @@ import toast from 'react-hot-toast';
 import '../Style/ProductCart.css'
 
 const ProductCart = ({item}) => {
+   
+   
 
     const dispatch = useDispatch()
     const addToCart = () => {
@@ -21,6 +23,12 @@ const ProductCart = ({item}) => {
         }))
         toast.success("Add")
     }
+    const navigate = useNavigate();
+
+    const navigateToProduct = id => {
+        console.log(id)
+        navigate(`/productDetails/${id}`)
+    }
     return (
         <Col lg='3' md='4' className='mb-2'>
             <div className='product_item'>
@@ -28,8 +36,10 @@ const ProductCart = ({item}) => {
                     <motion.img whileHover={{ scale: 0.9 }} src={item.imgUrl} alt="" />
                 </div>
                 <div className='p-2 product_info'>
-                     <h3 className='product_name'>
-                  <Link to={`/productDetails/${item._id}`}>{item.productName}</Link>
+                     <h3 className='product_name' onClick={() => navigateToProduct(item._id)} >
+                  {/* <Link to={`/productDetails/${item._id}`}> */}
+                    {item.productName}
+                    {/* </Link> */}
                     </h3>
                 </div>
                 <span >{item.category}</span>

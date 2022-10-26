@@ -6,7 +6,7 @@ const useProduct = () => {
         fetch('https://fast-reef-84114.herokuapp.com/product')
             .then(res => res.json())
             .then(data => setProducts(data));
-    }, [])
+    }, [products])
     return [products, setProducts]
 };
 

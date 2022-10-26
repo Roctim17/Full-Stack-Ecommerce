@@ -9,11 +9,12 @@ import Services from '../services/services';
 import ProductList from '../components/ProductList';
 import counterImg from '../assets/images/counter-timer-img.png';
 import Clock from '../components/Clock'
-import useProduct from '../Hooks/useProduct';
+// import useProduct from '../Hooks/useProduct';
+import products from '../assets/data/products';
 
 const Home = () => {
 
-    const [products] = useProduct([]);
+    // const [products] = useProduct([]);
     const [trendingProducts, setTrendingProducts] = useState([]);
     const [bestSalesProducts, setBestSalesProducts] = useState([]);
     const [mobileProducts, setMobileProducts] = useState([]);
@@ -33,7 +34,7 @@ const Home = () => {
         setMobileProducts(filterMobileProducts);
         setWirelessProducts(filterWirelessProducts);
         setPopularProducts(filterPopularProducts);
-    }, [products])
+    }, [])
   
 
     return (
