@@ -8,21 +8,35 @@ import '../Style/ProductDetails.css'
 import { motion } from 'framer-motion'
 import products from '../assets/data/products';
 import ProductList from '../components/ProductList';
+import { useDispatch } from 'react-redux';
+import { cartActions } from '../redux/slices/cartSlice';
+import toast from 'react-hot-toast';
 
 const ProductDetails = () => {
     const [tab, setTab] = useState('desc');
     const reviewUser = useRef('')
     const reviewMsg = useRef('')
-    const [rating,setRating]=useState(null)
+    const [rating, setRating] = useState(null);
+    const dispatch = useDispatch()
     const { id } = useParams();
     // const [products] = useProduct(id)
     const product = products.find(item => item._id = id)
-    const { imgUrl, productName, price, avgRating, shortDesc, description, reviews,category } = product;
-    const relatedProduct = products.filter(item=>item.category===category);
-    const submitHandler=(e)=>{
+    const { imgUrl, productName, price, avgRating, shortDesc, description, reviews, category } = product;
+    const relatedProduct = products.filter(item => item.category === category);
+    const submitHandler = (e) => {
         e.preventDefault()
-        const reviewUserName = reviewUser.current.value
-        const reviewUserMsg = reviewMsg.current.value
+        const reviewUserName = reviewUser.current.value;
+        const reviewUserMsg = reviewMsg.current.value;
+    };
+    const addToCart = () => {
+        dispatch(cartActions.addItem({
+            id,
+            image: imgUrl,
+            productName,
+            price,
+        }))
+        toast.success('Product added successfully')
+    }
     return (
         <Helmet>
             <CommonSection />
@@ -37,30 +51,33 @@ const ProductDetails = () => {
                                 <h2>{productName}</h2>
                                 <div className='product_rating d-flex align-items-center gap-5 mb-3'>
                                     <div>
-                                        <span onClick={()=>setRating(1)}>
+                                        <span onClick={() => setRating(1)}>
                                             <i className='ri-star-s-fill'></i>
                                         </span>
-                                        <span onClick={()=>setRating(2)}>
+                                        <span onClick={() => setRating(2)}>
                                             <i className='ri-star-s-fill'></i>
                                         </span>
-                                        <span onClick={()=>setRating(3)}>
+                                        <span onClick={() => setRating(3)}>
                                             <i className='ri-star-s-fill'></i>
                                         </span>
-                                        <span onClick={()=>setRating(4)}>
+                                        <span onClick={() => setRating(4)}>
                                             <i className='ri-star-s-fill'></i>
                                         </span>
-                                        <span onClick={()=>setRating(5)}>
+                                        <span onClick={() => setRating(5)}>
                                             <i className='ri-star-half-s-fill'></i>
                                         </span>
                                     </div>
                                     <p>( <span>{avgRating}</span> rating)</p>
                                 </div>
                                 <div className='d-flex align-items-center gap-5'>
-                                <span className='product_price'>$ {price}</span>
-                                <span>Category: {category.toUpperCase()}</span>
+                                    <span className='product_price'>$ {price}</span>
+                                    <span>Category: {category.toUpperCase()}</span>
                                 </div>
                                 <p className='mt-3'>{shortDesc}</p>
-                                <motion.button whileTap={{ scale: 1.2 }} className='buy_btn'>Add to Cart</motion.button>
+                                <motion.button whileTap={{ scale: 1.2 }} 
+                                className='buy_btn'
+                                onClick={addToCart}
+                                >Add to Cart</motion.button>
                             </div>
                         </Col>
                     </Row>
@@ -99,7 +116,7 @@ const ProductDetails = () => {
                                                 <h4>Leave your experience</h4>
                                                 <form onSubmit={submitHandler}>
                                                     <div className='form_group'>
-                                                        <input type="text" placeholder='Enter name' ref={reviewUser}/>
+                                                        <input type="text" placeholder='Enter name' ref={reviewUser} />
                                                     </div>
                                                     <div className='form_group d-flex align-items-center gap-5'>
                                                         <span>1<i className='ri-star-s-fill'></i></span>
@@ -109,10 +126,10 @@ const ProductDetails = () => {
                                                         <span>5<i className='ri-star-s-fill'></i></span>
                                                     </div>
                                                     <div className='form_group'>
-                                                        <textarea 
-                                                        ref={reviewMsg}
-                                                        rows={4}
-                                                        type="text" placeholder='Comment' />
+                                                        <textarea
+                                                            ref={reviewMsg}
+                                                            rows={4}
+                                                            type="text" placeholder='Comment' />
                                                     </div>
                                                     <button type='submit' className='buy_btn'>submit</button>
                                                 </form>

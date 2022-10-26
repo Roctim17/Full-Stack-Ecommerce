@@ -10,3 +10,13 @@
     color: #fff;
     font-weight: 600;
 }
+
+@media only screen and (max-width:768px) {
+
+    .common{
+        padding: 70px 0;
+    }
+    .common h1{
+        font-style: 1.4rem;
+    }
+}
