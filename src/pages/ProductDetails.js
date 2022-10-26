@@ -118,7 +118,8 @@ const ProductDetails = () => {
                                                     <div className='form_group'>
                                                         <input type="text" placeholder='Enter name' ref={reviewUser} />
                                                     </div>
-                                                    <div className='form_group d-flex align-items-center gap-5'>
+                                                    <div className='form_group 
+                                                    d-flex align-items-center gap-5 rating_group'>
                                                         <span>1<i className='ri-star-s-fill'></i></span>
                                                         <span>2<i className='ri-star-s-fill'></i></span>
                                                         <span>3<i className='ri-star-s-fill'></i></span>

@@ -72,3 +72,12 @@
     font-weight: 600;
     margin-top: 30px;
 }
+
+@media only screen and (max-width: 768px){
+    .product_details h2{
+        font-style: 1.3rem;
+    }
+    .rating_group{
+        column-gap: 0.5rem;
+    }
+}
