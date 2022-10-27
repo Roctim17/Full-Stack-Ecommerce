@@ -4,12 +4,12 @@ import CommonSection from '../components/CommonSection';
 import Helmet from '../components/Helmet';
 import '../Style/Cart.css'
 import { motion } from 'framer-motion'
-import { useSelector } from 'react-redux';
-import {cartActions} from '../redux/slices/cartSlice'
+import { useDispatch, useSelector } from 'react-redux';
+import { cartActions } from '../redux/slices/cartSlice'
 
 const Cart = () => {
-    const cartItems = useSelector(state=>state.cart.cartItems)
-        return (
+    const cartItems = useSelector(state => state.cart.cartItems)
+    return (
         <Helmet title='cart'>
             <CommonSection title='Shopping Cart' />
             <section>
@@ -17,34 +17,28 @@ const Cart = () => {
                     <Row>
                         <Col lg='9'>
                             {
-                                cartItems.length=== 0 ? <h2 className='fs-4 text-center'>No item added to the cart</h2> : (
+                                cartItems.length === 0 ? <h2 className='fs-4 text-center'>No item added to the cart</h2> : (
                                     <table className='table bordered'>
-                                <thead>
-                                    <tr key="">
-                                        <th>Image</th>
-                                        <th>Title</th>
-                                        <th>Price</th>
-                                        <th>Qty</th>
-                                        <th >Delete</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                   {
-                                    cartItems.map((item,index)=>(
-                                        <tr key={index}>
-                                        <td><img src={item.imgUrl} alt="" /></td>
-                                        <td>{item.productName}</td>
-                                        <td>{item.price}</td>
-                                        <td>{item.quantity}pc</td>
-                                        <td><motion.i whileTap={{ scale: 1.2 }} className='ri-delete-bin-line'></motion.i></td>
-                                    </tr>
+                                        <thead>
+                                            <tr key="">
+                                                <th>Image</th>
+                                                <th>Title</th>
+                                                <th>Price</th>
+                                                <th>Qty</th>
+                                                <th >Delete</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {
+                                                cartItems.map((item, index) => (
+                                     <Tr item={item} key={index}/>
                                     ))
-                                   }
-                                </tbody>
-                            </table>
+                                            }
+                                        </tbody>
+                                    </table>
                                 )
                             }
-                            
+
                         </Col>
                         <Col lg='3'></Col>
                     </Row>
@@ -53,5 +47,22 @@ const Cart = () => {
         </Helmet>
     );
 };
+const Tr = ({item}) => {
 
+    const  dispatch= useDispatch()
+
+const deleteProduct = () =>{
+    dispatch(cartActions.deleteItem(item.id))
+}
+
+    return <tr >
+        <td><img src={item.imgUrl} alt="" /></td>
+        <td>{item.productName}</td>
+        <td>{item.price}</td>
+        <td>{item.quantity}pc</td>
+        <td><motion.i whileTap={{ scale: 1.2 }} 
+        onClick={deleteProduct}
+        className='ri-delete-bin-line'></motion.i></td>
+    </tr>
+}
 export default Cart;
