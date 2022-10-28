@@ -72,8 +72,8 @@ const Tr = ({ item }) => {
     return <tr >
         <td><img src={item.imgUrl} alt="" /></td>
         <td>{item.productName}</td>
-        <td>{item.price}</td>
-        <td>{item.quantity}pc</td>
+        <td>${item.price}</td>
+        <td>{item.quantity} items</td>
         <td><motion.i whileTap={{ scale: 1.2 }}
             onClick={deleteProduct}
             className='ri-delete-bin-line'></motion.i></td>

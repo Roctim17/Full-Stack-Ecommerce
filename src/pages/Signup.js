@@ -1,7 +1,10 @@
+import { async } from '@firebase/util';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Col, Container, Form, FormGroup, Row } from 'reactstrap';
 import Helmet from '../components/Helmet';
+import { auth } from '../firebase.init';
 import '../Style/Login.css'
 
 const Signup = () => {
@@ -10,6 +13,18 @@ const Signup = () => {
     const [email,setEmail]= useState('')
     const [password, setPassword]= useState('')
     const [file, setFile]= useState(null)
+    const [loading,setLoading]=useState(false)
+
+    const signup = async(e)=>{
+        e.preventDefault()
+        setLoading(true)
+        try{
+const userCresential = await createUserWithEmailAndPassword(auth,email,password)
+const user = userCresential.user
+        }catch (error){
+
+        }
+    }
 
     return (
         <Helmet title='Signup'>

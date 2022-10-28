@@ -1,6 +1,6 @@
-/* .hero_section {
-    background: var(--hero-bg);
-} */
+.hero_section {
+    background: #d6e5fb89;
+}
 
 .hero_section h2 {
     color: var(--primary-color);
