@@ -1,4 +1,3 @@
-// import { async } from '@firebase/util';
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { doc, setDoc } from 'firebase/firestore';
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
@@ -7,7 +6,9 @@ import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 import { Col, Container, Form, FormGroup, Row } from 'reactstrap';
 import Helmet from '../components/Helmet';
-import { auth, db, storage } from '../firebase.init';
+import { auth, } from '../firebase.init';
+import {  db,  } from '../firebase.init';
+import {  storage } from '../firebase.init';
 import '../Style/Login.css'
 
 const Signup = () => {
@@ -25,7 +26,7 @@ const Signup = () => {
         try {
             const userCredential = await createUserWithEmailAndPassword(auth, email, password);
             const user = userCredential.user
-            const storageRef = ref(storage, `images/${Date.now() + username}`);
+            const storageRef = ref(storage, `images/${ Date.now() + username}`)
             const uploadTask = uploadBytesResumable(storageRef, file)
             uploadTask.on((error) => {
                 toast.error(error.message)
@@ -49,6 +50,7 @@ const Signup = () => {
             setLoading(false)
             toast.success('Account Done');
             navigate('/login')
+            console.log(user)
         } catch (error) {
             setLoading(false)
             toast.error(error.message)

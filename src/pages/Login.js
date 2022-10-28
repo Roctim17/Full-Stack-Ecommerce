@@ -21,6 +21,7 @@ const Login = () => {
             const userCredential= await signInWithEmailAndPassword(auth,email,password)
             const user =userCredential.user
             setLoading(false)
+            console.log(user)
             toast.success('successfully logged in')
             navigate('/checkout')
 

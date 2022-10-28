@@ -65,7 +65,7 @@ const Header = () => {
     }
     
     const toggleProfileActions = () => profileActionRef.current.classList.toggle('show_profileActions')
-
+console.log(currentUser)
     return (
         <header className='header' ref={headerRef}>
             <Container>
@@ -100,7 +100,9 @@ const Header = () => {
                             </span>
                             <div className='profile'>
                                 <motion.img whileTap={{ scale: 1.2 }}
-                                    src={currentUser ? currentUser.photoUrl : userIcon} alt=""
+                                    src={
+                                        // currentUser ? currentUser.photoUrl :
+                                         userIcon} alt=""
                                     onClick={toggleProfileActions}
                                 />
 
