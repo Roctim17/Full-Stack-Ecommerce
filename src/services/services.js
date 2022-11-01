@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 
 const Services = () => {
 
+    
 const [services, setServices]= useState([]);
 useEffect(()=>{
     fetch("https://fast-reef-84114.herokuapp.com/service")
